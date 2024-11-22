@@ -2,16 +2,14 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redirige a home por defecto
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule) },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'resultado-modal',
+    loadChildren: () => import('./resultado-modal/resultado-modal.module').then( m => m.ResultadoModalPageModule)
   },
 ];
+
 
 @NgModule({
   imports: [
